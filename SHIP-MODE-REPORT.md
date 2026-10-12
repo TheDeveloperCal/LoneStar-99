@@ -18,12 +18,13 @@ This section supersedes earlier contradictory release and test statuses below. H
 - Version `0.1.0` (versionCode 1), application ID `com.developercal.ti99pocket`, min SDK 26, target SDK 36, arm64-v8a.
 - Debug APK: `app/build/outputs/apk/debug/app-debug.apk`; SHA-256 `f8c196df84a34570e701c71ad8a618d8f4d191d5a089e816811a5c10b4408383`.
 - Signed release APK: `app/build/outputs/apk/release/app-release.apk`; 8,024,207 bytes; SHA-256 `9abccc9be3e0330f2c92683ec9652859852a95cde813d3957ab957450f3c04a1`. `apksigner verify --verbose --print-certs` passed with APK Signature Scheme v2. Certificate subject is `CN=LoneStar 99 Release, OU=DeveloperCal, O=DeveloperCal, C=US`; certificate SHA-256 `f023c9409e7e5d575f883f06fcee9aa293bf6fc202ae0fdeca9774c47a79c7e5`. Existing keystore permissions are now 0600. Back up the keystore encrypted outside the repository and keep its passwords in a password manager.
-- The app remains mixed-license because Libre99 core/firmware and some game/assets retain Modified MIT + Commons Clause terms. No whole-project GPL-only claim is made. This is not a stable v1.0 claim; any GitHub release should be an honest 0.1.0 prerelease after repository publication and final audit.
+- The app remains mixed-license because Libre99 core/firmware and some game/assets retain Modified MIT + Commons Clause terms. No whole-project GPL-only claim is made. The published 0.1.0 is an honest prerelease, not a stable v1.0 claim.
 
 ### Repository and publication
 
-- **NOT PUBLISHED** — The workspace began without Git metadata, commits, tags, or a remote. GitHub CLI is not installed and no authenticated GitHub session has been verified. The intended URL is `https://github.com/TheDeveloperCal/LoneStar-99`; neither repository existence nor publication has been verified. No public release URL exists.
-- External report destination requested by the owner: `the external LoneStar 99 ship-report folderfinal-qa-report.md`; the complete current report is also kept in `docs/final-qa-report.md` in this project.
+- **PUBLISHED** — Public repository: `https://github.com/TheDeveloperCal/LoneStar-99`. Authenticated owner verified as TheDeveloperCal; initial source commit `dfa31cf91052efcf6898a4ca3f522bdc9d14ecd3` is on `main` and tagged `v0.1.0`.
+- **PUBLISHED PRERELEASE** — `https://github.com/TheDeveloperCal/LoneStar-99/releases/tag/v0.1.0`. The release contains the verified signed `app-release.apk` and checksum. It is marked prerelease, not stable v1.0, with mixed-license and hardware-test limitations disclosed.
+- External report destination requested by the owner: `~/SHIP-MODE-REPORTS/2026-10-11-LoneStar-99/final-qa-report.md`; the complete current report is also kept in `docs/final-qa-report.md` in this project.
 
 ---
 

@@ -6,7 +6,7 @@
 
 **Device:** BLU B1660V, Android 15
 
-**Publication:** Not yet published; GitHub repository state is unverified.
+**Publication:** Public GitHub repository and `v0.1.0` prerelease verified.
 
 ## Delivered
 
@@ -53,10 +53,9 @@ Genuine device captures for portrait, landscape, settings, firmware, About, PDF,
 
 ## GitHub and release status
 
-The initial workspace had no usable Git metadata, remote, commits, or tags. The `gh` CLI was absent. Repository `https://github.com/TheDeveloperCal/LoneStar-99` and account authentication have not yet been verified; therefore no push or GitHub release is claimed. The Git commit/tag state is currently **none**. Any eventual GitHub release should be published as a clearly labeled `0.1.0` prerelease after the owner account is authenticated and the repository contents are audited.
+The workspace was initialized as a new repository after preserving a backup and auditing staged files. Authenticated owner `TheDeveloperCal` created the public repository [TheDeveloperCal/LoneStar-99](https://github.com/TheDeveloperCal/LoneStar-99). Initial source commit `dfa31cf91052efcf6898a4ca3f522bdc9d14ecd3` is pushed on `main` and tagged `v0.1.0`. The signed APK is published as the [0.1.0 prerelease](https://github.com/TheDeveloperCal/LoneStar-99/releases/tag/v0.1.0). GitHub reports the release is marked prerelease and contains `app-release.apk` (8,024,207 bytes); the remote asset SHA-256 digest matches the local verified APK: `9abccc9be3e0330f2c92683ec9652859852a95cde813d3957ab957450f3c04a1`.
 
 ## Remaining checks
 
-1. Verify `TheDeveloperCal` GitHub authentication and repository ownership, initialize/publish the reviewed source without force-pushing, and verify the remote commit.
-2. Complete physical HID keyboard, external file import/export, sound loopback, browser intent result, and broader orientation/lifecycle checks when practical.
-3. Retain the mixed-license and non-TI-BASIC limitations in release notes.
+1. Complete physical HID keyboard, external file import/export, sound loopback, browser intent result, and broader orientation/lifecycle checks when practical.
+2. Retain the mixed-license and non-TI-BASIC limitations in release notes.

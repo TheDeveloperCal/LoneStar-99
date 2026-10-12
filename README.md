@@ -127,6 +127,8 @@ Android UI smoke tests are under `app/src/androidTest/`; they require a connecte
 
 Application ID: `com.developercal.ti99pocket`; version `0.1.0` (code 1); min SDK 26; target SDK 36; ARM64 only. Debug and signed release APKs build with a local release key configured outside this repository. Keep the keystore and its four `LS99_RELEASE_*` Gradle properties private and backed up separately; never commit them. Store an encrypted keystore backup in secure offline storage and keep the passwords in a password manager. The project does not publish or upload the key.
 
+The signed **0.1.0 prerelease** APK is available on [GitHub Releases](https://github.com/TheDeveloperCal/LoneStar-99/releases/tag/v0.1.0). It is a prerelease, not a stable v1.0 release; see its notes for installation, checksum, licensing, and known limits.
+
 ## Privacy
 
 The app requests no network permission and includes no analytics SDK or account service. Emulator state, imported software, PDF copies, and Lab files are stored locally by the app. Android's document picker grants access to files the user chooses. About/history/support links open through an external browser; that browser may use the network and its own privacy settings. Android backup behavior follows the device's system settings.
