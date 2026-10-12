@@ -1,0 +1,4 @@
+Libre99 upstream commit: 6c86f10bae65f4cc3bdc13289e14bb20af03ab61
+Files vendored: crates/libre99-gpl/**, LICENSE.md, original-content/system-roms/grom/SURFACE-MAP.md
+The GPL crate's path dependencies and source/artifact test paths were adapted to
+this repository's existing matching libre99-core/libre99-asm and firmware files.

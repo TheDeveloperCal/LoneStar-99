@@ -1,0 +1,13 @@
+[package]
+name = "ti99pocket-core-android"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+
+[lib]
+name = "ti99pocket_core_android"
+crate-type = ["cdylib"]
+
+[dependencies]
+libre99-core = { path = "libre99-core" }
+jni = "0.21.1"

@@ -1,0 +1,15 @@
+.gradle/
+.kotlin/
+**/build/
+**/target/
+app/src/main/jniLibs/
+local.properties
+key.properties
+signing.properties
+*.properties.local
+*.jks
+*.keystore
+*.p12
+*.pem
+hs_err_pid*.log
+.idea/

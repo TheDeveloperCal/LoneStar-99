@@ -1,0 +1,11 @@
+# Offline source-based console-GROM build. GPL assembler sources are vendored
+# from upstream Libre99 commit 6c86f10bae65f4cc3bdc13289e14bb20af03ab61.
+[workspace]
+resolver = "2"
+members = ["crates/libre99-gpl"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Joel Odom"]
+repository = "https://github.com/joelodom/libre99"

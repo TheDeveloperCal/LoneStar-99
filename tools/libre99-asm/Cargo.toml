@@ -1,0 +1,18 @@
+[package]
+name = "libre99-asm"
+version = "0.1.0"
+edition = "2021"
+license-file = "LIBRE99_LICENSE.md"
+authors = ["Joel Odom"]
+repository = "https://github.com/joelodom/libre99"
+
+[dependencies]
+libre99-core = { path = "../../app/src/main/rust/libre99-core" }
+
+[lib]
+name = "libre99_asm"
+path = "src/lib.rs"
+
+[[bin]]
+name = "libre99asm"
+path = "src/main.rs"

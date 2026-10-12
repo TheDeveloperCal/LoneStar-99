@@ -1,0 +1,9 @@
+[package]
+name = "libre99-core"
+version = "0.1.0"
+edition = "2021"
+license-file = "../LIBRE99_LICENSE.md"
+
+[lib]
+name = "libre99_core"
+path = "src/lib.rs"
