@@ -1,4 +1,5 @@
 # LoneStar 99
+unofficial TI-99/4A emulator for Android
 
 A no-cost, unofficial TI-99/4A emulator for Android, built around the Libre99 core. **Built in Texas for retro-computing fans.** LoneStar 99 is not affiliated with or endorsed by Texas Instruments. The combined application has mixed licensing; it is not wholly free-software compatible.
 
