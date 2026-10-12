@@ -24,6 +24,7 @@
 - Android unit tests: **11/11 passed**.
 - Android lint, debug build, and signed release build: passed. Gradle reports the known AGP 8.8.2 / compileSdk 36 compatibility warning and two deprecated system-bar color setter warnings.
 - Android instrumentation on BLU B1660V / Android 15: **3/3 passed**: bundled cartridge load/eject, settings and Lab navigation/create/reset cancellation, and About/history/support visibility.
+- Release-signed APK installation on that phone: **NOT RUN**. It cannot replace the installed debug-signed package; uninstalling that copy would erase app data, which was preserved.
 - Physical Bluetooth/USB keyboard hardware, full external SAF imports/exports, sound loopback, browser network result, TalkBack, and prolonged soak: **NOT RUN**.
 
 ## Device evidence and compatibility

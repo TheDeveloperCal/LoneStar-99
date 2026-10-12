@@ -14,4 +14,4 @@
 - Authentic TI BASIC firmware import and BASIC-source injection are not supported. The Lab runs the separate clean-room TI PYTHON language.
 - External physical Bluetooth/USB keyboard behavior requires verification with a real device.
 - TI manual redistribution rights were not established; the app does not bundle an original manual.
-- Android device instrumentation and final release installation require a connected target phone.
+- Release-signed APK installation over the existing debug app was not run because the signature mismatch would require uninstalling the debug app and clearing its local data. Instrumentation smoke tests passed on the connected phone.
