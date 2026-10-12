@@ -1,0 +1,9 @@
+[package]
+name = "lonestar-homebrew-carts"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+
+[dependencies]
+libre99-core = { path = "../../app/src/main/rust/libre99-core" }
+libre99-asm = { path = "../libre99-asm" }

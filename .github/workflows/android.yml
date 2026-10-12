@@ -32,8 +32,12 @@ jobs:
           cargo test --locked --offline --manifest-path app/src/main/rust/libre99-core/Cargo.toml
           cargo test --locked --offline --manifest-path tools/texas-trail/Cargo.toml
           cargo test --release --locked --offline --manifest-path tools/texas-trail/Cargo.toml
+          cargo run --locked --offline --manifest-path tools/homebrew-carts/Cargo.toml --bin build_carts -- --check
+          cargo test --locked --offline --manifest-path tools/homebrew-carts/Cargo.toml
+          cargo test --release --locked --offline --manifest-path tools/homebrew-carts/Cargo.toml
+          cargo clippy --locked --offline --manifest-path tools/homebrew-carts/Cargo.toml --all-targets -- -D warnings
           cargo clippy --locked --offline --manifest-path app/src/main/rust/libre99-core/Cargo.toml --all-targets -- -D warnings
           cargo clippy --locked --offline --manifest-path tools/texas-trail/Cargo.toml --all-targets -- -D warnings
           cargo clippy --locked --offline --manifest-path tools/firmware-toolchain/Cargo.toml --all-targets -- -D warnings
       - name: Android unit tests, lint, and builds
-        run: gradle :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleRelease
+        run: gradle :app:testDebugUnitTest :app:compileDebugAndroidTestKotlin :app:lintDebug :app:assembleDebug :app:assembleRelease

@@ -12,7 +12,9 @@ The clean-room console ROM, console GROM, and disk DSR binaries in `app/src/main
 
 **Titris** and **Sokoban** are upstream Libre99 cartridges with source in `original-content/cartridges/`; they retain the same terms and Joel Odom attribution. Sokoban includes Microban levels by David W. Skinner, subject to the attribution and free-distribution condition in `original-content/cartridges/sokoban/README.md`.
 
-The original game logic in `games/texas-trail/texas-trail.asm` is a DeveloperCal contribution under GPL-3.0-only. Its adapted 8×8 font table comes from Titris and is expressly excluded from that grant; it retains the Libre99 terms. The compiled `texas-trail.ctg` consequently contains mixed-licensed material. Its builder and gameplay test source are identified as GPL-3.0-only DeveloperCal contributions, but their Libre99-linked build/test tools and generated output keep their own terms.
+The original game logic in `games/texas-trail/texas-trail.asm` is a DeveloperCal contribution under GPL-3.0-only. Its adapted 8×8 font table comes from Titris and is expressly excluded from that grant; it retains the Libre99 terms. The compiled Texas Trail cartridge consequently contains mixed-licensed material.
+
+The original game logic in `games/starlight-patrol.asm`, `games/solar-salvage.asm`, and `games/oilfield-outrun.asm`, plus the shared cartridge runtime in `games/common/runtime.asm`, are DeveloperCal contributions under GPL-3.0-only. Their reproducible builder and gameplay tests are in `tools/homebrew-carts/`. Each generated homebrew cartridge also contains the separately licensed Titris font table inserted by the build, so these `.ctg` files remain mixed-license. Builder/tests link the separately licensed Libre99 emulator core.
 
 No authentic TI firmware, commercial cartridge, or commercial disk image is bundled. The clean-room firmware is Libre99's work; it is not relicensed as GPL by this project.
 

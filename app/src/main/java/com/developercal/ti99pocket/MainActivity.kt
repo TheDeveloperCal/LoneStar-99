@@ -292,9 +292,12 @@ private fun PdfReaderDialog(uri: Uri, page: Int, zoom: Float, onPage: (Int) -> U
         } }, confirmButton = { TextButton(onClick = onDismiss) { Text("CLOSE") } })
 }
 
-data class SoftwareFile(val uri: Uri?, val name: String, val type: String, val assetName: String? = null)
+data class SoftwareFile(val uri: Uri?, val name: String, val type: String, val assetName: String? = null, val description: String? = null)
 
 private val builtInPrograms = listOf(
+    SoftwareFile(null, "Starlight Patrol", "CTG", "games/starlight-patrol.ctg", "Space shooter · 1 left, 2 fire, 3 right, 4 advance threat"),
+    SoftwareFile(null, "Solar Salvage 99", "CTG", "games/solar-salvage-99.ctg", "Maze puzzle · 1 left, 2 up, 3 right, 4 down"),
+    SoftwareFile(null, "Oilfield Outrun", "CTG", "games/oilfield-outrun.ctg", "Driving challenge · 1 left, 2 drive, 3 right"),
     SoftwareFile(null, "The Texas Trail", "CTG", "games/texas-trail.ctg"),
     SoftwareFile(null, "Titris", "CTG", "games/titris.ctg"),
     SoftwareFile(null, "Sokoban", "CTG", "games/sokoban.ctg"),
@@ -786,7 +789,10 @@ private fun PocketApp(onKeepPermission: (Uri) -> Unit, onImmersiveChanged: (Bool
         text = { if (library.isEmpty()) Text("Your imported software appears here. Import a file you have permission to use.") else LazyColumn { items(orderedLibrary) { f ->
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                 val isMounted = f.libraryId() == mountedCartridgeId || f.libraryId() == mountedDiskId
-                Text("${f.name}  ·  ${f.type}${if (isMounted) " · mounted" else ""}", Modifier.weight(1f).clickable { selected = f; showLibrary = false; notice = "${f.name} selected. Use LOAD to mount it." }.padding(vertical = 10.dp))
+                Column(Modifier.weight(1f).clickable { selected = f; showLibrary = false; notice = "${f.name} selected. Use LOAD to mount it." }.padding(vertical = 8.dp)) {
+                    Text("${f.name}  ·  ${f.type}${if (isMounted) " · mounted" else ""}")
+                    f.description?.let { Text(it, color = LocalUiPalette.current.muted, fontSize = 10.sp, lineHeight = 13.sp) }
+                }
                 if (isMounted) {
                     TextButton(onClick = { ejectSoftware(f) }) { Text("EJECT") }
                 }
@@ -822,7 +828,7 @@ private fun PocketApp(onKeepPermission: (Uri) -> Unit, onImmersiveChanged: (Bool
                         Text("After selecting a program, tap LOAD. At the console menu, press 2 to start the cartridge. The Texas Trail shows its instructions before the journey; its numbered choices travel, rest, repair, and trade. Use PAUSE/RESUME without resetting the machine. RESET restarts the emulated console.")
                         Text("Open Software Library to eject mounted media. Cartridge eject returns to the console menu. Disk eject retains writes in this app session; reinsert that same image and use EXPORT DSK to save a separate edited copy. Save a machine state if you need to preserve the in-memory disk shelf across app restarts.")
                         Text("Disk software requires a compatible disk image mounted as DSK1. Authentic TI BASIC and commercial firmware are not bundled. The built-in clean-room firmware runs the included software and the documented compatible programs; compatibility is not guaranteed for every cartridge or disk.")
-                        TextButton(onClick = { showInfo = false; mountFile(builtInPrograms.first()) }) { Text("LOAD THE TEXAS TRAIL") }
+                        TextButton(onClick = { showInfo = false; mountFile(builtInPrograms.first { it.name == "The Texas Trail" }) }) { Text("LOAD THE TEXAS TRAIL") }
                     }
                     "HISTORY" -> {
                         Text("Texas Instruments grew from an electronics and semiconductor business into a maker of calculators, instruments, and computers. The TI-99/4 arrived in 1979; the revised TI-99/4A followed in 1981 with a full-travel keyboard and updated video hardware. TI ended production in 1984 as the home-computer market changed rapidly.")
@@ -834,7 +840,7 @@ private fun PocketApp(onKeepPermission: (Uri) -> Unit, onImmersiveChanged: (Bool
                         TextButton(onClick = { openExternal(context, "https://www.unige.ch/medecine/nouspikel/ti99/titechpages.htm") }) { Text("TI-99/4A TECHNICAL PAGES") }
                     }
                     else -> {
-                        Text("LoneStar 99 / LS-99 by DeveloperCal\nUnofficial TI-99/4A emulator\nVersion 0.1.0 (1) · © 2026 DeveloperCal")
+                        Text("LoneStar 99 / LS-99 by DeveloperCal\nUnofficial TI-99/4A emulator\nVersion 0.2.0 (2) · © 2026 DeveloperCal")
                         Text("Built in Texas for retro-computing fans.", color = LocalUiPalette.current.accent, fontWeight = FontWeight.SemiBold)
                         Text("Why I made LoneStar 99\n\nI'm a Texan who loves retro Texas computer history. I've always wanted a TI-99/4A emulator for Android that feels like using the original computer while making it easier for a new generation to experience its software.\n\nLoneStar 99 is my independent project to preserve and celebrate that history through accessible emulation, original homebrew projects, and a modern mobile interface.\n\nMy goal is to make vintage computing approachable, encourage people to explore and write their own programs, and share my appreciation for this part of Texas technology history.")
                         Text("This unofficial project is not affiliated with or endorsed by Texas Instruments. The Android app includes original DeveloperCal work and third-party emulator, firmware, and game components under their respective licenses. The integrated application is mixed-license; some third-party terms restrict commercial distribution.", color = LocalUiPalette.current.muted)
@@ -967,7 +973,7 @@ private fun SettingsScreen(
                 Text("TI BASIC requires authentic user-provided firmware. The bundled clean-room firmware provides the console environment, not TI BASIC.", color = colors.muted, fontSize = 12.sp)
             } }
             item { SettingGroup("ABOUT & SUPPORT", colors) {
-                Text("LoneStar 99 · LS-99\nUnofficial TI-99/4A Emulator\nDeveloperCal · version 0.1.0 (1)\n© 2026 DeveloperCal", color = colors.text, fontSize = 13.sp, lineHeight = 19.sp)
+                Text("LoneStar 99 · LS-99\nUnofficial TI-99/4A Emulator\nDeveloperCal · version 0.2.0 (2)\n© 2026 DeveloperCal", color = colors.text, fontSize = 13.sp, lineHeight = 19.sp)
                 Text("Not affiliated with or endorsed by Texas Instruments. This app combines components under different licenses; see LICENSE-SCOPE.md and THIRD_PARTY_NOTICES.md for full license terms and third-party attribution.", color = colors.muted, fontSize = 12.sp)
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     TextButton(onClick = { openExternal(context, "https://liberapay.com/DeveloperCal/") }) { Text("SUPPORT ON LIBERAPAY", color = colors.accent) }

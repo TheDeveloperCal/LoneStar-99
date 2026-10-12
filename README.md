@@ -7,7 +7,7 @@ The Android app identifies itself as **LoneStar 99 / LS-99 by DeveloperCal**. Th
 ## What it does
 
 - Immersive fullscreen TI-99/4A display with the on-screen keyboard, sound, quick save/restore, pause, reset, and run controls.
-- Built-in cartridge shelf with up to five recently used programs listed first: **The Texas Trail** (an original game), **Titris**, and **Sokoban**.
+- Built-in cartridge shelf with three original homebrew games first: **Starlight Patrol**, **Solar Salvage 99**, and **Oilfield Outrun**, followed by **The Texas Trail**, **Titris**, and **Sokoban**.
 - Imports user-selected `.ctg` and raw `.bin` cartridges and `.dsk` disk images through Android's document picker. Imported selections persist across app launches when Android retains access. The library marks mounted software and provides EJECT actions. Cartridge eject returns to the console menu; disk eject keeps its in-session writes on a keyed shelf so the same image can be reinserted and exported. Modified DSK1 images are exported as a separate file and never silently replace the selected original.
 - Uses bundled clean-room console firmware. TI BASIC requires authentic firmware supplied by the user. `.rpk` and cassette/tape images are not supported.
 - Settings persist theme mode (System/Light/Dark), six color palettes, four hardware skins, fullscreen, command-row visibility, key feedback, sound enable/volume, touch-keyboard size, display scale, and nearest-neighbor/bilinear pixel filtering. Minimal Console can hide and restore its on-screen keyboard without resetting the machine. Reset asks before clearing the current unsaved machine session.
@@ -17,7 +17,34 @@ The Android app identifies itself as **LoneStar 99 / LS-99 by DeveloperCal**. Th
 - About includes a user-selected PDF reader using Android `PdfRenderer` with page navigation, zoom, and saved last page. Search is unavailable in the platform renderer. No TI manual is bundled because redistribution rights were not established; users can import a PDF they may lawfully use or visit the linked community manual archive.
 - About includes How to Run, TI-99/4A history with source links, project background, license notices, and support links.
 
-To play a cartridge, open **Library**, select a game, and press **Load**. When the TI console's software-selection screen appears, press any key, then press **2** for the cartridge. To remove it, open the library and choose **EJECT** beside the mounted entry. On The Texas Trail title screen, press any key to open the field guide, then press another key to start. In the game, 1 travels, 2 rests, 3 repairs, and 4 trades. Choose 1 for the prairie route or 2 for the dry western cut at a fork. Reaching 320 miles wins. Supplies and equipment can run out. Titris and Sokoban have their own title-screen instructions. Ejected disk writes are retained only for the current app session or a saved machine state; reinsert the same disk and export a new image to keep them.
+## Original homebrew cartridges
+
+These TMS9900 cartridges appear first in the ordinary Library, ahead of The Texas Trail, Titris, and Sokoban. Their title screens repeat the controls.
+
+### Starlight Patrol
+
+A lane-based space arcade game. Move with **1/3**, fire with **2**, and advance the moving asteroid with **4**. Firing scores; entering the asteroid's lane costs a life. Survive three lives, then press a key to restart.
+
+![Starlight Patrol title and controls](docs/homebrew-gameplay/2026-10-11/starlight-patrol-title.png)
+![Starlight Patrol game-over screen after collisions](docs/homebrew-gameplay/2026-10-11/starlight-patrol-game-over.png)
+
+### Solar Salvage 99
+
+Explore the five-by-three map with **1** left, **2** up, **3** right, and **4** down. Walls cost energy. Collect the energy cell and reach the exit to win; zero energy loses. Press a key after a result to restart.
+
+![Solar Salvage 99 title and controls](docs/homebrew-gameplay/2026-10-11/solar-salvage-99-title.png)
+![Solar Salvage 99 extraction win after collecting the cell](docs/homebrew-gameplay/2026-10-11/solar-salvage-99-extraction-win.png)
+
+### Oilfield Outrun
+
+Steer across three lanes with **1/3** and drive with **2**. The oil hazard moves to the next lane each drive; clear lanes add score and distance, while a collision costs a life. Press a key after a crash to restart.
+
+![Oilfield Outrun title and controls](docs/homebrew-gameplay/2026-10-11/oilfield-outrun-title.png)
+![Oilfield Outrun game-over screen after repeated hazard collisions](docs/homebrew-gameplay/2026-10-11/oilfield-outrun-crash-game-over.png)
+
+These screenshots are unaltered 256×192 framebuffer captures rendered by the actual Libre99 `Machine` after source-built cartridges received TI keyboard-matrix input. They document emulator gameplay and state changes; they are not Android UI captures. The dated ship report records which device and clean-install checks were available for this candidate.
+
+To play a cartridge, open **Library**, select a game, and press **Load**. When the TI console's software-selection screen appears, press any key, then press **2** for the cartridge. The new games use the real TI keyboard matrix: **Starlight Patrol** uses 1/2/3 to steer and fire, and 4 to advance the asteroid; **Solar Salvage 99** uses 1/2/3/4 to move left/up/right/down, collect the cell, then reach extraction; **Oilfield Outrun** uses 1/2/3 to steer and drive. Each screen lists its controls. To remove a cartridge, open the library and choose **EJECT** beside the mounted entry. On The Texas Trail title screen, press any key to open the field guide, then press another key to start. In the game, 1 travels, 2 rests, 3 repairs, and 4 trades. Choose 1 for the prairie route or 2 for the dry western cut at a fork. Reaching 320 miles wins. Supplies and equipment can run out. Titris and Sokoban have their own title-screen instructions. Ejected disk writes are retained only for the current app session or a saved machine state; reinsert the same disk and export a new image to keep them.
 
 The Android touch keyboard maps to the TI-99 keyboard matrix and supports multi-touch. Display is rendered at 256×192 (4:3), with selectable nearest-neighbor or bilinear scaling. The core emulates TMS9900, TMS9918A, SN76489, GROM, TMS9901/CRU keyboard, cartridges, the FD1771 disk controller, and complete machine snapshots.
 
@@ -107,6 +134,16 @@ The project is not currently distributable as one genuinely free/open-source GPL
 
 ## Build
 
+### Bundled homebrew games
+
+The three added games are TI TMS9900 cartridges. Their assembly lives in `games/`; the shared startup/display runtime is `games/common/runtime.asm`. Build the CTGs reproducibly with:
+
+```sh
+./tools/build-homebrew-carts.sh
+```
+
+Check the committed cartridges against fresh assembly with `cargo run --locked --offline --manifest-path tools/homebrew-carts/Cargo.toml --bin build_carts -- --check`. The builder combines the game assembly with the shared runtime and the credited Titris-derived font table. Gameplay tests boot each CTG in Libre99's `Machine` with the bundled console ROM/GROM, exercise the emulator keyboard matrix, assert game state, and render real VDP framebuffer images. See [`tools/homebrew-carts/README.md`](tools/homebrew-carts/README.md) for the commands and mechanics. These compact games use turn-based input; they do not synthesize game sound. Their generated CTGs include the separately licensed font, so they remain mixed-license. See `LICENSE-SCOPE.md` and `THIRD_PARTY_NOTICES.md`.
+
 Requirements: JDK 17+, Android SDK platform 36, Android NDK 27.1.12297006, Gradle 8.10.2, Rust stable, and Rust target `aarch64-linux-android`.
 
 ```sh
@@ -125,9 +162,9 @@ cargo test --offline --manifest-path tools/texas-trail/Cargo.toml --test gamepla
 
 Android UI smoke tests are under `app/src/androidTest/`; they require a connected Android device and run with `gradle :app:connectedDebugAndroidTest`. `.github/workflows/android.yml` runs firmware/core/game tests, Android unit tests, lint, and debug/release assembly on pushes and pull requests.
 
-Application ID: `com.developercal.ti99pocket`; version `0.1.0` (code 1); min SDK 26; target SDK 36; ARM64 only. Debug and signed release APKs build with a local release key configured outside this repository. Keep the keystore and its four `LS99_RELEASE_*` Gradle properties private and backed up separately; never commit them. Store an encrypted keystore backup in secure offline storage and keep the passwords in a password manager. The project does not publish or upload the key.
+Application ID: `com.developercal.ti99pocket`; source candidate version `0.2.0` (code 2); min SDK 26; target SDK 36; ARM64 only. Debug and signed release APKs build with a local release key configured outside this repository. Keep the keystore and its four `LS99_RELEASE_*` Gradle properties private and backed up separately; never commit them. Store an encrypted keystore backup in secure offline storage and keep the passwords in a password manager. The project does not publish or upload the key.
 
-The signed **0.1.0 prerelease** APK is available on [GitHub Releases](https://github.com/TheDeveloperCal/LoneStar-99/releases/tag/v0.1.0). It is a prerelease, not a stable v1.0 release; see its notes for installation, checksum, licensing, and known limits.
+The latest published release remains the signed **0.1.0 prerelease** at [GitHub Releases](https://github.com/TheDeveloperCal/LoneStar-99/releases/tag/v0.1.0). The 0.2.0 source is an unpublished candidate until device installation, cold-launch and gameplay checks complete on an isolated clean target. To upgrade, install over the same application ID with the matching release signing certificate; Android rejects a mismatched signer. Do not uninstall an existing install if you need to preserve its app-private data. Download only the APK and checksum published together on an official release page.
 
 ## Privacy
 

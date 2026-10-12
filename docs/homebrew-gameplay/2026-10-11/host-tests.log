@@ -1,0 +1,573 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running `tools/firmware-toolchain/target/debug/libre99gpl console /home/linux/ti99pocket/app/src/main/rust/assets/console-grom.bin`
+wrote /home/linux/ti99pocket/app/src/main/rust/assets/console-grom.bin (24576 bytes)
+   Compiling libre99-gpl v0.1.0 (/home/linux/ti99pocket/tools/firmware-toolchain/crates/libre99-gpl)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.19s
+     Running unittests src/lib.rs (tools/firmware-toolchain/target/debug/deps/libre99_gpl-ceb5706513fef22c)
+
+running 43 tests
+test asm::tests::absolute_branch ... ok
+test asm::tests::cross_slot_branch_is_rejected ... ok
+test asm::tests::branches_and_labels ... ok
+test asm::tests::backdrop_at_entry ... ok
+test asm::tests::data_directives ... ok
+test asm::tests::move_to_registers_matches_boot_trace ... ok
+test asm::tests::move_to_vram_matches_probe ... ok
+test asm::tests::store_immediates ... ok
+test asm::tests::two_op_immediate_out_of_range_is_rejected ... ok
+test asm::tests::two_op_immediate_boundaries_are_accepted ... ok
+test census::tests::stats_columns_partition_the_region ... ok
+test asm::tests::vdp_and_indirect_operands ... ok
+test census::tests::runs_are_ordered_disjoint_and_authentic_only ... ok
+test decode::tests::absolute_branch_and_call ... ok
+test decode::tests::store_immediates_tile ... ok
+test decode::tests::backdrop_immediate ... ok
+test decode::tests::branch_is_slot_absolute ... ok
+test decode::tests::menu_trace_instructions_tile_exactly ... ok
+test font::tests::matches_authentic_character_set ... ok
+test font::tests::matches_authentic_lower_set ... ok
+test font::tests::lower_expanded_block_matches_loader_output ... ok
+test font::tests::lower_stored_block_matches_packed_lower ... ok
+test font::tests::matches_authentic_thin_set ... ok
+test isa::tests::family_bit_layout ... ok
+test font::tests::packed_size_and_identity_mapping ... ok
+test font::tests::thin_stored_block_matches_packed_thin ... ok
+test font::tests::thin_expanded_block_matches_loader_output ... ok
+test isa::tests::lookup_d_prefix ... ok
+test isa::tests::move_bits_roundtrip ... ok
+test keymap::tests::ctrl_block_follows_the_letter_rule ... ok
+test keymap::tests::fctn_block_has_the_arrow_keys ... ok
+test keymap::tests::joystick_table_lands_at_17c8 ... ok
+test keymap::tests::table_layout_and_values ... ok
+test logo::tests::packs_the_expected_number_of_glyphs ... ok
+test logo::tests::codes_stay_below_the_font ... ok
+test logo::tests::sampled_texas_art_fills_the_emblem_canvas ... ok
+test operand::tests::extended_16bit_form ... ok
+test operand::tests::roundtrips ... ok
+test operand::tests::short_cpu_form ... ok
+test operand::tests::vdp_indirect_encodes_the_cell_offset ... ok
+test logo::tests::transparent_margin_cells_are_preserved ... ok
+test system_grom::tests::assembles_and_has_valid_header ... ok
+test keymap::tests::joystick_deflection_table_lands_at_16ea ... ok
+
+test result: ok. 43 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running unittests src/main.rs (tools/firmware-toolchain/target/debug/deps/libre99gpl-59486988884aeb07)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/boot_trivial.rs (tools/firmware-toolchain/target/debug/deps/boot_trivial-b0ffd002a42ad46a)
+
+running 2 tests
+test backdrop_value_is_ours_not_a_coincidence ... ok
+test our_gpl_sets_the_backdrop ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/census.rs (tools/firmware-toolchain/target/debug/deps/census-ba6d17bcbc1447b1)
+
+running 4 tests
+test surface_map_covers_every_authentic_only_run ... ok
+test surface_map_is_well_formed ... ok
+test data_must_match_regions_are_byte_identical ... ok
+test chip_gaps_are_zero_in_our_image ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/char_set.rs (tools/firmware-toolchain/target/debug/deps/char_set-1cc5ed4936959e35)
+
+running 3 tests
+test ti_invaders_opening_text_glyphs_load_on_our_grom ... ok
+test lower_case_loader_matches_the_authentic_console ... ok
+test char_set_loader_slots_are_wired ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/committed_bin.rs (tools/firmware-toolchain/target/debug/deps/committed_bin-0c15a4d242d2120e)
+
+running 1 test
+test committed_console_grom_bin_matches_a_fresh_build_of_console_gpl ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/conformance.rs (tools/firmware-toolchain/target/debug/deps/conformance-435589b8e4d713d4)
+
+running 3 tests
+test menu_contract_holds_on_both_firmwares ... ok
+test title_contract_holds_on_both_firmwares ... ok
+test f5_from_gameplay_reestablishes_the_boot_contract ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/coverage_sweep.rs (tools/firmware-toolchain/target/debug/deps/coverage_sweep-63f5ddb9959ddb4f)
+
+running 1 test
+test grom_coverage_sweep ... ignored
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/device_io.rs (tools/firmware-toolchain/target/debug/deps/device_io-fb5b5cd39c7f2ef8)
+
+running 3 tests
+test bad_device_errors_gracefully_without_hanging ... ok
+test disk_power_up_reserves_vram ... ok
+test tunnels_of_doom_loads_quest_scenario_from_disk ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/disasm_recon.rs (tools/firmware-toolchain/target/debug/deps/disasm_recon-613ae969dc128842)
+
+running 3 tests
+test boot_prefix_tiles_like_recon ... ok
+test entry_is_a_branch_to_0052 ... ok
+test header_decodes ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/disk_dsr.rs (tools/firmware-toolchain/target/debug/deps/disk_dsr-0ac98c8f5f8a03d8)
+
+running 46 tests
+test dsr_catalog_matches ... ok
+test dsr_delete_matches ... ok
+test dsr_cross_oracle_write ... ok
+test dsr_fileio_subs_match ... ok
+test dsr_format_cross_oracle ... ok
+test dsr_files_subprogram_matches ... ok
+test dsr_errors_match ... ok
+test dsr_powerup_and_header_match ... ok
+test dsr_load_program_matches ... ok
+test dsr_protect_rename_match ... ok
+test dsr_read_var_fix_matches ... ok
+test dsr_restore_scratch_match ... ok
+test dsr_robustness_matches ... ok
+test dsr_save_matches ... ok
+test dsr_sector_subprogram_matches ... ok
+test dsr_status_matches ... ok
+test dsr_open_modes_match ... ok
+test dsr_volume_form_matches ... ok
+test dsr_write_var_matches ... ok
+test dsr_write_fix_matches ... ok
+test probe_catalog ... ignored
+test probe_delete ... ignored
+test probe_errors ... ignored
+test probe_fdir_search_order ... ignored
+test probe_files_sub ... ignored
+test probe_load_program ... ignored
+test probe_ours_close_trace ... ignored
+test probe_ours_create_trace ... ignored
+test probe_ours_modes_trace ... ignored
+test probe_ours_save_trace ... ignored
+test probe_ours_status_trace ... ignored
+test probe_powerup_vram ... ignored
+test probe_read_builder_files ... ignored
+test probe_rig_smoke_status ... ignored
+test probe_save_program ... ignored
+test probe_scratch_restore ... ignored
+test probe_sector_sub ... ignored
+test probe_tod_pab ... ignored
+test probe_tunnels_layout ... ignored
+test probe_volume_form ... ignored
+test probe_write_fix ... ignored
+test probe_write_var ... ignored
+test our_dsr_power_up_reserves_the_vram_buffer ... ok
+test tod_loads_quest_with_our_dsr ... ok
+test committed_disk_dsr_artifact_is_fresh ... ok
+test our_dsr_is_an_8k_image_with_the_aa_header ... ok
+
+test result: ok. 24 passed; 0 failed; 22 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/f5_reset.rs (tools/firmware-toolchain/target/debug/deps/f5_reset-391695f11f79e7f9)
+
+running 1 test
+test f5_after_gameplay_still_launches_from_the_menu ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/firmware_matrix.rs (tools/firmware-toolchain/target/debug/deps/firmware_matrix-b0c4457cf0034f4c)
+
+running 4 tests
+test matrix_idle_isr_parity ... ok
+test matrix_menu_parity ... ok
+test matrix_puscan_walk_matches_authentic ... ok
+test matrix_title_parity ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/interrupts.rs (tools/firmware-toolchain/target/debug/deps/interrupts-6e287bf68deb734b)
+
+running 4 tests
+test isr_runs_after_boot ... ok
+test menu_beeps_on_rejected_key ... ok
+test tunnels_of_doom_plays_sound ... ok
+test reset_mutes_stale_sound_channels ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/keyboard.rs (tools/firmware-toolchain/target/debug/deps/keyboard-dbc00552643a661e)
+
+running 3 tests
+test joystick_directions_produce_deflection ... ok
+test joystick_mode_needs_the_17c8_table ... ok
+test mode0_fctn_decodes_the_arrow_keys ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/menu.rs (tools/firmware-toolchain/target/debug/deps/menu-62be79619d796e87)
+
+running 3 tests
+test menu_lists_and_launches_grom_cart ... ok
+test menu_lists_ti_python_with_no_cartridge ... ok
+test menu_lists_and_launches_rom_cart ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/menu_cap.rs (tools/firmware-toolchain/target/debug/deps/menu_cap-60548c1d0101b8e5)
+
+running 1 test
+test menu_caps_listed_programs_at_nine ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/menu_cue.rs (tools/firmware-toolchain/target/debug/deps/menu_cue-d50a90b15af4eae1)
+
+running 2 tests
+test menu_builds_with_no_scanning_cue ... ok
+test menu_reveals_atomically_with_full_list ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/perf_parity.rs (tools/firmware-toolchain/target/debug/deps/perf_parity-484aefc2bb604391)
+
+running 1 test
+test perf_parity_title_and_menu ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/rom_kscan.rs (tools/firmware-toolchain/target/debug/deps/rom_kscan-5d7c216806eba93f)
+
+running 12 tests
+test kscan_mode1_joystick1_down_differs_from_up ... ok
+test kscan_mode1_joystick1_up_reads_deflection ... ok
+test kscan_mode1_split_keyboard_matches_authentic ... ok
+test kscan_mode2_joystick2_up_reads_deflection ... ok
+test kscan_reads_digit_5 ... ok
+test kscan_native_state_reads_the_switch_and_keeps_lowercase ... ok
+test kscan_reads_letter_a ... ok
+test kscan_reads_enter ... ok
+test kscan_reads_space ... ok
+test kscan_state0_folds_authentic_lowercase_table_to_uppercase ... ok
+test kscan_no_key_is_ff_and_clear ... ok
+test our_keytab_types_lowercase_in_native_state_and_folds_in_state0 ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/rom_perf.rs (tools/firmware-toolchain/target/debug/deps/rom_perf-71e39d415e3fa986)
+
+running 1 test
+test perf_parity_report ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/rom_robust.rs (tools/firmware-toolchain/target/debug/deps/rom_robust-8ecfcec10d3f0dd0)
+
+running 3 tests
+test quit_reset_storm_recovers ... ok
+test pathological_sound_list_never_wedges ... ok
+test menu_lists_many_entries ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/rom_title.rs (tools/firmware-toolchain/target/debug/deps/rom_title-41fc676422517991)
+
+running 2 tests
+test our_rom_paints_the_title_pixel_identically ... ok
+test our_rom_reaches_the_menu_pixel_identically ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/roundtrip.rs (tools/firmware-toolchain/target/debug/deps/roundtrip-99143ac34c8029d2)
+
+running 4 tests
+test absolute_and_relative_branches ... ok
+test immediate_ops_roundtrip ... ok
+test vdp_store_roundtrip ... ok
+test store_ops_roundtrip ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/service_stubs.rs (tools/firmware-toolchain/target/debug/deps/service_stubs-9dfc81eb6993befc)
+
+running 2 tests
+test unimplemented_service_call_does_not_reboot_the_cart ... ok
+test service_grid_has_no_silent_zero_tail ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/sweep.rs (tools/firmware-toolchain/target/debug/deps/sweep-fc7f85390db81bce)
+
+running 12 tests
+test sweep_all_cartridges ... ignored
+test sweep_farlist_starpeg ... ok
+test sweep_farlist_xb25 ... ok
+test quit_returns_to_our_title ... ok
+test sweep_grom_only_amazing ... ok
+test sweep_grom_rom_invaders ... ok
+test sweep_multi_huntthewumpus ... ok
+test sweep_grom_rom_parsec ... ok
+test sweep_multi_banked_et ... ok
+test sweep_multi_videogames1 ... ok
+test sweep_rom_banked_moonpatrol ... ok
+test sweep_rom_only_centipe ... ok
+
+test result: ok. 11 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/sysinfo_screen.rs (tools/firmware-toolchain/target/debug/deps/sysinfo_screen-3282a7ba75459308)
+
+running 4 tests
+test stamped_rows_render_the_hosts_facts ... ok
+test menu_offers_the_screen_and_unstamped_rows_render_unknown ... ok
+test the_built_image_carries_an_unstamped_block_and_synchronized_versions ... ok
+test the_screen_also_runs_under_our_rewritten_rom ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.32s
+
+     Running tests/ti_python.rs (tools/firmware-toolchain/target/debug/deps/ti_python-13fc6493a3762fdd)
+
+running 12 tests
+test backspace_erase_and_control_keys_edit_cleanly ... ok
+test banner_says_what_this_is ... ok
+test input_stops_at_the_row_edge ... ok
+test overlapped_typing_delivers_every_character ... ok
+test print_items_strings_comments_and_exit ... ok
+test deep_nesting_overflows_cleanly_and_the_repl_survives ... ok
+test python_arithmetic_semantics ... ok
+test the_33rd_name_is_a_memory_error ... ok
+test full_size_names_bind_and_overflow_honestly ... ok
+test the_cursor_blinks_at_the_input_cell ... ok
+test the_screen_scrolls_instead_of_clearing ... ok
+test ti_python_evaluates_the_reference_session ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/title_screen.rs (tools/firmware-toolchain/target/debug/deps/title_screen-9342840ab29a8aa3)
+
+running 3 tests
+test reset_from_a_dirty_screen_repaints_it_clean ... ok
+test boots_to_recreated_title_screen ... ok
+test font_and_emblem_loaded_into_pattern_table ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/xb_smoke.rs (tools/firmware-toolchain/target/debug/deps/xb_smoke-c9aca1d61efa85a9)
+
+running 1 test
+test extended_basic_executes_under_the_clean_room_firmware ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests libre99_gpl
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running unittests src/lib.rs (app/src/main/rust/libre99-core/target/debug/deps/libre99_core-46fe6bc22c5609d1)
+
+running 35 tests
+test bus::tests::word_access_ignores_address_bit_0 ... ok
+test bus::tests::cru_bits_round_trip ... ok
+test bus::tests::default_bus_has_no_wait_states ... ok
+test cartridge::tests::dispatch_rejects_data_that_is_neither_banner_nor_magic ... ok
+test cartridge::tests::raw_rom_bin_parses_as_consecutive_rom_banks ... ok
+test cartridge::tests::raw_rom_pads_to_a_power_of_two_bank_count ... ok
+test cartridge::tests::raw_rom_single_bank_disables_banking ... ok
+test cartridge::tests::write_v1_round_trips_single_bank ... ok
+test cartridge::tests::raw_rom_without_a_program_name_has_an_empty_title ... ok
+test bus::tests::word_access_is_big_endian ... ok
+test cartridge::tests::write_v1_round_trips_two_banks_with_cru_base ... ok
+test disk::tests::anonymous_mounts_are_not_remembered ... ok
+test disk::tests::eighty_track_geometry_parses ... ok
+test bus::tests::load_words_places_big_endian_stream ... ok
+test disk::tests::forget_reverts_to_the_host_bytes_on_the_next_mount ... ok
+test disk::tests::image_for_key_and_mark_clean_reach_both_drive_and_shelf ... ok
+test disk::tests::length_mismatch_falls_back ... ok
+test disk::tests::headerless_image_falls_back_by_size ... ok
+test disk::tests::inconsistent_vib_falls_back_to_size_default ... ok
+test disk::tests::mounting_a_different_disk_shelves_the_current_one ... ok
+test disk::tests::keyed_eject_and_remount_reattaches_the_written_image ... ok
+test disk::tests::parses_sssd_dssd_ssdd_geometry_from_the_vib ... ok
+test disk::tests::version1_disk_state_loads_with_no_identities_and_an_empty_shelf ... ok
+test grom::tests::load_state_drops_coverage ... ok
+test machine::cartridge_eject_tests::eject_removes_rom_grom_and_host_identity ... ok
+test state::tests::primitives_round_trip ... ok
+test state::tests::reading_past_the_end_is_truncated_not_a_panic ... ok
+test grom::tests::coverage_bitmap_marks_the_true_prefetch_corrected_read_addresses ... ok
+test sysinfo::tests::crc32_matches_the_reference_vector ... ok
+test sysinfo::tests::rom_marker_version_reads_only_marked_images ... ok
+test sysinfo::tests::images_without_the_magic_are_left_untouched ... ok
+test sysinfo::tests::overlong_and_unrenderable_text_is_truncated_and_sanitized ... ok
+test third_party::tests::a_missing_image_is_none_not_a_panic ... ok
+test sysinfo::tests::stamping_fills_fields_and_raises_the_flag ... ok
+test grom::tests::coverage_is_off_by_default_and_dropped_on_disable ... ok
+
+test result: ok. 35 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests libre99_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling texas-trail-build v0.1.0 (/home/linux/ti99pocket/tools/texas-trail)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.30s
+     Running unittests src/bin/build_cart.rs (tools/texas-trail/target/debug/deps/build_cart-8382c534a998c4cc)
+
+running 1 test
+test tests::build_injects_the_separately_licensed_font_table ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/gameplay.rs (tools/texas-trail/target/debug/deps/gameplay-8164556abb3e4231)
+
+running 3 tests
+test cartridge_boots_to_original_title_and_help ... ok
+test journey_actions_change_resources_and_reach_the_pecos ... ok
+test exhausted_supplies_end_the_journey ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.95s
+
+   Compiling texas-trail-build v0.1.0 (/home/linux/ti99pocket/tools/texas-trail)
+    Finished `release` profile [optimized] target(s) in 0.38s
+     Running unittests src/bin/build_cart.rs (tools/texas-trail/target/release/deps/build_cart-770c7ff58e9a9104)
+
+running 1 test
+test tests::build_injects_the_separately_licensed_font_table ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/gameplay.rs (tools/texas-trail/target/release/deps/gameplay-f95c60971b1b66a2)
+
+running 3 tests
+test cartridge_boots_to_original_title_and_help ... ok
+test exhausted_supplies_end_the_journey ... ok
+test journey_actions_change_resources_and_reach_the_pecos ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.17s
+
+   Compiling lonestar-homebrew-carts v0.1.0 (/home/linux/ti99pocket/tools/homebrew-carts)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.39s
+     Running `tools/homebrew-carts/target/debug/build_carts --check`
+PASS: committed CTGs match freshly assembled source
+   Compiling lonestar-homebrew-carts v0.1.0 (/home/linux/ti99pocket/tools/homebrew-carts)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.52s
+     Running unittests src/lib.rs (tools/homebrew-carts/target/debug/deps/lonestar_homebrew_carts-435f0445ec34ac43)
+
+running 2 tests
+test tests::all_homebrew_sources_build_as_titled_cartridges ... ok
+test tests::committed_cartridges_match_current_assembly_sources ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests src/bin/build_carts.rs (tools/homebrew-carts/target/debug/deps/build_carts-519e9cd2fa52ae14)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/gameplay_evidence.rs (tools/homebrew-carts/target/debug/deps/gameplay_evidence-81a14e7b0a7f0eb4)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/existing_cartridges.rs (tools/homebrew-carts/target/debug/deps/existing_cartridges-bd2f6a051ecb89bd)
+
+running 2 tests
+test titris_bundle_starts_a_piece_and_real_joystick_input_moves_it ... ok
+test sokoban_bundle_moves_and_pushes_on_the_real_board ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.53s
+
+     Running tests/gameplay.rs (tools/homebrew-carts/target/debug/deps/gameplay-03ec1f8fb449ac1d)
+
+running 3 tests
+test solar_real_machine_blocks_wall_collects_cell_and_wins ... ok
+test starlight_real_machine_scores_moves_and_reaches_game_over ... ok
+test oilfield_real_machine_scores_distance_and_crashes_after_hazards ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.66s
+
+   Doc-tests lonestar_homebrew_carts
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling lonestar-homebrew-carts v0.1.0 (/home/linux/ti99pocket/tools/homebrew-carts)
+    Finished `release` profile [optimized] target(s) in 1.91s
+     Running unittests src/lib.rs (tools/homebrew-carts/target/release/deps/lonestar_homebrew_carts-7aa4beefca1e7844)
+
+running 2 tests
+test tests::committed_cartridges_match_current_assembly_sources ... ok
+test tests::all_homebrew_sources_build_as_titled_cartridges ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/bin/build_carts.rs (tools/homebrew-carts/target/release/deps/build_carts-635f7e1994b4f134)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/gameplay_evidence.rs (tools/homebrew-carts/target/release/deps/gameplay_evidence-5df38d55752b4746)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/existing_cartridges.rs (tools/homebrew-carts/target/release/deps/existing_cartridges-87f8b9ce4d98527a)
+
+running 2 tests
+test sokoban_bundle_moves_and_pushes_on_the_real_board ... ok
+test titris_bundle_starts_a_piece_and_real_joystick_input_moves_it ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running tests/gameplay.rs (tools/homebrew-carts/target/release/deps/gameplay-29e4860e28e4f2df)
+
+running 3 tests
+test oilfield_real_machine_scores_distance_and_crashes_after_hazards ... ok
+test starlight_real_machine_scores_moves_and_reaches_game_over ... ok
+test solar_real_machine_blocks_wall_collects_cell_and_wins ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+   Doc-tests lonestar_homebrew_carts
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s
+    Checking texas-trail-build v0.1.0 (/home/linux/ti99pocket/tools/texas-trail)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.13s
+    Checking lonestar-homebrew-carts v0.1.0 (/home/linux/ti99pocket/tools/homebrew-carts)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.47s
+    Checking libre99-gpl v0.1.0 (/home/linux/ti99pocket/tools/firmware-toolchain/crates/libre99-gpl)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.11s
+    Checking bytes v1.12.1
+    Checking memchr v2.8.3
+    Checking cfg-if v1.0.5
+    Checking jni-sys v0.4.1
+    Checking thiserror v1.0.69
+    Checking log v0.4.34
+    Checking cesu8 v1.1.0
+    Checking jni-sys v0.3.1
+    Checking libre99-core v0.1.0 (/home/linux/ti99pocket/app/src/main/rust/libre99-core)
+    Checking combine v4.6.8
+    Checking jni v0.21.1
+    Checking ti99pocket-core-android v0.1.0 (/home/linux/ti99pocket/app/src/main/rust)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 6.79s
