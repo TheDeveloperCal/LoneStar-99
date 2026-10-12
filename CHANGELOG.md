@@ -1,11 +1,12 @@
 # Changelog
 
-## 0.2.0 — 2026-10-11 (candidate; not published)
+## 0.2.0-rc.1 — 2026-10-12 (prerelease candidate)
 
 - Added three original offline TI-99/4A cartridges: Starlight Patrol, Solar Salvage 99, and Oilfield Outrun. All are available in the normal Software Library and include their controls on-screen.
 - Added source-to-CTG builder and reproducibility check under `tools/homebrew-carts/`; gameplay tests boot the generated cartridges in the same Libre99 machine, firmware and keyboard-matrix path used by the Android app.
 - Added Android library and gameplay instrumentation coverage for all three games and regression inputs for Titris and Sokoban. See the dated status in `SHIP-MODE-REPORT.md` for exactly which checks ran and which clean-install/device checks remain blocked.
 - The APK version is 0.2.0 (versionCode 2), but this candidate is not a stable release. The published v0.1.0 prerelease and tag remain unchanged.
+- Candidate APK SHA-256: `3ea8336b03e9982bedbc6dcc3afa8d022b69fe1726dfb72361d4237c18c28ccc`. Host gameplay, Android unit, lint, and build checks passed; device instrumentation and clean-install gameplay are not verified. See `SHIP-MODE-REPORT.md` for the complete status.
 - The app remains mixed-license. New cartridges incorporate the separately licensed Titris-derived font; no upstream license or attribution was changed.
 
 ## 0.1.0 — 2026-10-11

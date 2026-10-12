@@ -1,10 +1,10 @@
-# LoneStar 99 v0.2.0 candidate report
+# LoneStar 99 v0.2.0-rc.1 candidate report
 
-Date: 2026-10-11
+Date: 2026-10-12
 
 Branch: `release/v0.2.0`
 
-Status: candidate prepared; stable release is blocked
+Status: prerelease candidate prepared; GitHub publication is pending authentication; stable release is blocked
 
 ## Candidate contents
 
@@ -25,7 +25,7 @@ Host-side emulator gameplay was exercised using the shipped Libre99 core, TI fir
 
 ## Device handling note
 
-The requested disposable package cleanup command targeted only `com.developercal.ti99pocket.showcase`; Android returned `DELETE_FAILED_INTERNAL_ERROR`. A subsequent read-only package enumeration showed neither that package nor `com.developercal.ti99pocket`. No uninstall command targeted the production package and no app-data clear was issued. Because the package listing changed and the device state could not be established safely, no further device mutation or install was attempted. Production package/data presence after that event is unknown and is not claimed as preserved.
+The requested disposable package cleanup command targeted only `com.developercal.ti99pocket.showcase`; Android returned `DELETE_FAILED_INTERNAL_ERROR`. On 2026-10-12, read-only ADB discovery found the BLU B1660V (Android 15, serial `2100016025000896`). Read-only `pm path` and package-list queries found neither `com.developercal.ti99pocket` nor `.showcase`. The phone has other third-party apps and is not established as a dedicated clean test device, so no installation or further device mutation was attempted. No uninstall command targeted the production package and no app-data clear was issued; production package/data presence following the earlier package-manager error remains unknown and is not claimed as preserved.
 
 ## Screenshots
 
@@ -48,4 +48,4 @@ The APK is signed and its signature verifies. It has not been installed on a cle
 
 ## Repository state
 
-This report describes the candidate branch at commit `6e5897ce78e2ac4a9a2ac61db3fadbcaae2851fa`. The commit is local on `release/v0.2.0`; push failed because the configured GitHub credential helper references a missing `gh` executable and Git has no interactive credential source in this session. No tag, stable release, or release asset was published.
+The original implementation commit `21f1f9a52790044854df02cdc6ae4365a68f461a` is preserved on local branch `release/v0.2.0`. Remote `main` advanced by two README-only commits after the candidate's base; the candidate remains separate and does not update `main`. The configured GitHub CLI binary was restored from the official v2.102.0 release and checked against its published SHA-256, but the stored GitHub credential is invalid. Interactive login is pending in the browser; no credential or token was exposed. The local branch has not been pushed and the RC tag/release are not published yet. The historical `v0.1.0` release/tag has not been changed.
