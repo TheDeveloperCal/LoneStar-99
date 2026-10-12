@@ -4,7 +4,7 @@ Date: 2026-10-12
 
 Branch: `release/v0.2.0`
 
-Status: prerelease candidate prepared; GitHub publication is pending authentication; stable release is blocked
+Status: candidate branch and tag are public; APK prerelease publication is pending authentication; stable release is blocked
 
 ## Candidate contents
 
@@ -19,6 +19,7 @@ Host-side emulator gameplay was exercised using the shipped Libre99 core, TI fir
 - **PASS** — Android unit tests (11 total), Android instrumentation-test Kotlin compilation and APK assembly, debug/release APK builds, and `lintDebug`.
 - **PASS** — Final release APK signature verification (APK Signature Scheme v2), package ID `com.developercal.ti99pocket`, version name `0.2.0`, version code `2`; release APK includes updated license and third-party notices.
 - **PASS** — `git diff --check`.
+- **PASS** — Candidate branch and annotated tag pushed without force; GitHub confirms the branch commit and tag target. Public raw README, ship report, Starlight source, and Starlight CTG match local files byte-for-byte.
 - **NOT RUN** — Android instrumentation tests on a device/emulator. Test code compiles, but the available BLU B1660V had a signing conflict during instrumentation install, and no usable local Android system image/AVD was available.
 - **BLOCKED** — Clean installation, cold launch, Library portrait/landscape inspection, and gameplay through the installed release APK. Therefore actual Android UI screenshots and installed-release gameplay are not verified. The checked-in gameplay screenshots are authentic emulator-core framebuffer captures from the automated TI gameplay harness, not app UI/device captures.
 - **BLOCKED** — Stable GitHub release publication. The installed-release quality gate above is required by the release criteria and has not passed. The historical `v0.1.0` prerelease/tag is preserved.
@@ -48,4 +49,6 @@ The APK is signed and its signature verifies. It has not been installed on a cle
 
 ## Repository state
 
-The original implementation commit `21f1f9a52790044854df02cdc6ae4365a68f461a` is preserved on local branch `release/v0.2.0`. Remote `main` advanced by two README-only commits after the candidate's base; the candidate remains separate and does not update `main`. The configured GitHub CLI binary was restored from the official v2.102.0 release and checked against its published SHA-256, but the stored GitHub credential is invalid. Interactive login is pending in the browser; no credential or token was exposed. The local branch has not been pushed and the RC tag/release are not published yet. The historical `v0.1.0` release/tag has not been changed.
+The original implementation commit `21f1f9a52790044854df02cdc6ae4365a68f461a` is preserved on public branch [`release/v0.2.0`](https://github.com/TheDeveloperCal/LoneStar-99/tree/release/v0.2.0). The annotated tag [`v0.2.0-rc.1`](https://github.com/TheDeveloperCal/LoneStar-99/tree/v0.2.0-rc.1) is pushed and points to candidate commit `01dc2638dbd2785f372dba21e6873516c0420de5`. The configured HTTPS `origin` remains `https://github.com/TheDeveloperCal/LoneStar-99.git`; the push used the working pre-existing SSH identity without changing `origin`. Remote `main` is at `f5af811` and has two README-only commits beyond the candidate base; the candidate remains separate and `main` was not changed.
+
+The official GitHub CLI v2.102.0 binary was restored under `/tmp` and verified against its published SHA-256. Its saved GitHub credential is invalid, so it cannot create a release or upload assets. A passkey sign-in attempt was denied by the browser approval review because it would navigate to `accounts.google.com`; no workaround or interaction with Google was attempted. The APK, checksum sidecar, and screenshot attachments have not been uploaded, and no GitHub release object exists yet. The historical `v0.1.0` release/tag remains unchanged.
